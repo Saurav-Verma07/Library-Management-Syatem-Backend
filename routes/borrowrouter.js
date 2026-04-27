@@ -1,0 +1,20 @@
+import express from "express";
+import {
+  borrowedBooks,
+  getBorrowedBookforAdmin,
+  recordBorrowedBook,
+  returnBorrowBook
+} from "../controllers/borrowcontroller.js";
+import {
+  isAuthenticated,
+  isAuthorized
+} from "../middlewares/authMiddleware.js";
+
+const router = express.Router();
+
+router.post("/record-borrow-book/:id", isAuthenticated, isAuthorized("Admin"), recordBorrowedBook);
+router.get("/borrowed-books-by-user", isAuthenticated, isAuthorized("Admin"), getBorrowedBookforAdmin);
+router.get("/my-borrowed-books", isAuthenticated, borrowedBooks);
+router.put("/return-borrowed-book/:bookid", isAuthenticated, isAuthorized("Admin"), returnBorrowBook);
+
+export default router;
