@@ -14,7 +14,7 @@ import { removeunwantedverifyaccount } from './Services/removeunwantedverifyacco
 
 
 export const app = express();
-config({ path: "./config/config.env" });
+config();
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
