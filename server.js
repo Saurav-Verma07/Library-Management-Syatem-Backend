@@ -15,6 +15,6 @@ app.listen(PORT, () => {
 });
 app.get("/", (req, res) => {
   res.send("Library Backend is running 🚀");
-});
+}); 
 
 export default cloudinary;
