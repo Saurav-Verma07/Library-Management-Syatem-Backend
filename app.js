@@ -44,7 +44,9 @@ removeunwantedverifyaccount();
 connectDB();
 
 
-
+app.get("/", (req, res) => {
+  res.send("Library Backend is running 🚀");
+});
 
 
 
